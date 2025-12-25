@@ -7,4 +7,8 @@
     <RootNamespace>Event_Management_API</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Models/" />
+  </ItemGroup>
+
 </Project>
