@@ -5,4 +5,6 @@ var app = builder.Build();
 
 //Middlewares Area
 
+app.MapControllers();
+
 app.Run();
