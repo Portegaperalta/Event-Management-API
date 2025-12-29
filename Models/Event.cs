@@ -21,4 +21,5 @@ public class Event
     [Required]
     public required TimeSpan EndTime{get;set;}
     public string? AccessCode {get;set;}
+    public List<Guest> GuestList {get;set;} = [];
 }
