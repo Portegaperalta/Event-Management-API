@@ -9,6 +9,4 @@ public class Guest
     public required string FirstName {get;set;}
     [Required]
     public required string LastName{get;set;}
-    public string? EventAcessCode {get;set;}
-    public List<Event> SignedUpEvents {get;set;} = [];
 }
