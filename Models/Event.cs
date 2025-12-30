@@ -20,6 +20,4 @@ public class Event
     public required TimeSpan StartTime {get;set;}
     [Required]
     public required TimeSpan EndTime{get;set;}
-    public string? AccessCode {get;set;}
-    public List<Guest> GuestList {get;set;} = [];
 }
