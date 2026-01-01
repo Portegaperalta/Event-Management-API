@@ -9,6 +9,7 @@ var app = builder.Build();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
         options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+builder.Services.AddControllers();
 //Middlewares Area
 
 app.MapControllers();
