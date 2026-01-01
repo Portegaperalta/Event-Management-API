@@ -9,4 +9,8 @@ public class ApplicationDbContext : DbContext
     public ApplicationDbContext(DbContextOptions options) : base (options)
     {
     }
+
+    public DbSet<Guest> Guests {get;set;}
+    public DbSet<Event> Events {get;set;}
+    public DbSet<EventGuest> EventsGuests {get;set;}
 }
