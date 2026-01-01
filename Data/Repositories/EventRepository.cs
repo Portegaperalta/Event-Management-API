@@ -22,4 +22,10 @@ public class EventRepository : IEventRepository
     {
         return await _context.Events.FirstOrDefaultAsync();
     }
+
+    public async Task CreateAsync(Event eventData)
+    {
+        _context.Events.Add(eventData);
+        await _context.SaveChangesAsync();
+    }
 }
