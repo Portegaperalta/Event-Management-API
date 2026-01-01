@@ -28,4 +28,10 @@ public class EventRepository : IEventRepository
         _context.Events.Add(eventData);
         await _context.SaveChangesAsync();
     }
+
+    public async Task UpdateAsync(Event eventData)
+    {
+        _context.Events.Update(eventData);
+        await _context.SaveChangesAsync();
+    }
 }
