@@ -12,6 +12,7 @@ public class Event
     public required string Description {get;set;}
     [Required]
     public required string Location {get;set;}
+    public string? AccessCode {get;set;}
     [Required]
     public required DateTime StartDate {get;set;}
     [Required]
