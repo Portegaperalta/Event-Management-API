@@ -34,4 +34,12 @@ public class EventRepository : IEventRepository
         _context.Events.Update(eventData);
         await _context.SaveChangesAsync();
     }
+
+    public async Task<int> DeleteAsync(int eventId)
+    {
+        var deletedRecords = await _context.Events
+                                           .Where(e => e.Id == eventId)
+                                           .ExecuteDeleteAsync();
+        return deletedRecords;
+    }
 }
