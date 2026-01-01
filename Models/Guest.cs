@@ -9,4 +9,7 @@ public class Guest
     public required string FirstName {get;set;}
     [Required]
     public required string LastName{get;set;}
+    [Required]
+    [Phone]
+    public required string PhoneNumber {get;set;}
 }
