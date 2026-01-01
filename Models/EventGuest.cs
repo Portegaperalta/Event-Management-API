@@ -8,6 +8,6 @@ public class EventGuest
     public int GuestId {get;set;}
     public string EventStatus {get;set;} = "default";
     public string Rspv {get;set;} = "not invited";
-    public Guest Guest {get;set;}
-    public Event Event {get;set;}
+    public Guest? Guest {get;set;}
+    public Event? Event {get;set;}
 }
