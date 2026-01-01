@@ -5,9 +5,9 @@ namespace Event_Management_API.Data.Repositories;
 
 public interface IEventRepository
 {
-    Task <IEnumerable<Event>> GetEventsAsync();
-    Task <Event?> GetEventAsync(int eventId);
-    Task CreateEventAsync(Event eventData);
-    Task UpdateEventAsync(Event eventData);
-    Task<int> DeleteEventAsync(int eventId);
+    Task <IEnumerable<Event>> GetByIdAsync();
+    Task <Event?> GetAllAsync(int eventId);
+    Task CreateAsync(Event eventData);
+    Task UpdateAsync(Event eventData);
+    Task<int> DeleteAsync(int eventId);
 }
