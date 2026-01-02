@@ -20,7 +20,8 @@ public class GuestRepository : IGuestRepository
 
     public async Task<Guest?> GetByIdAsync(int guestId)
     {
-        return await _context.Guests.Where(g => g.Id == guestId).FirstOrDefaultAsync();
+        return await _context.Guests.Where(g => g.Id == guestId)
+                                    .FirstOrDefaultAsync();
     }
 
     public async Task CreateAsync(Guest guestData)
