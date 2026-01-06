@@ -6,7 +6,7 @@ namespace Event_Management_API.Services;
 
 public interface IEventService
 {
-    Task<IEnumerable<Event>> GetAllAsync();
+    Task<IEnumerable<EventDTO>> GetAllAsync();
     Task<EventDTO?> GetByIdAsync(int eventId);
     Task CreateAsync(Event eventData);
     Task UpdateAsync(Event enventUpdateData);
