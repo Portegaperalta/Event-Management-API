@@ -8,7 +8,7 @@ public interface IEventService
 {
     Task<IEnumerable<EventDTO>> GetAllAsync();
     Task<EventDTO?> GetByIdAsync(int eventId);
-    Task CreateAsync(Event eventData);
-    Task UpdateAsync(Event enventUpdateData);
+    Task CreateAsync(EventCreationDTO eventCreationDto);
+    Task UpdateAsync(EventUpdateDTO eventUpdateDto);
     Task DeleteAsync(int eventId);
 }
