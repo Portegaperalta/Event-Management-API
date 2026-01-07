@@ -16,4 +16,12 @@ public class EventService : IEventService
         _context = context;
         _eventMapper = eventMapper;
     }
+
+        public async Task<IEnumerable<EventDTO>> GetAllAsync()
+    {
+        var eventsDb = await _context.Events.ToListAsync();
+        var eventsDTOs =eventsDb.Select(eventDb => _eventMapper.MapToDTO(eventDb));
+
+        return eventsDTOs;
+    }
 }
