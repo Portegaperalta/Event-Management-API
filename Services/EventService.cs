@@ -1,5 +1,6 @@
 using System;
 using Event_Management_API.Data;
+using Event_Management_API.Data.Repositories;
 using Event_Management_API.DTOS;
 using Event_Management_API.Mappers;
 using Event_Management_API.Models;
@@ -9,17 +10,17 @@ namespace Event_Management_API.Services;
 
 public class EventService : IEventService
 {
-    private readonly ApplicationDbContext _context;
+    private readonly EventRepository _eventRepository;
     private readonly EventMapper _eventMapper;
-    public EventService(ApplicationDbContext context,EventMapper eventMapper)
+    public EventService(EventRepository eventRepository,EventMapper eventMapper)
     {
-        _context = context;
+        _eventRepository = eventRepository;
         _eventMapper = eventMapper;
     }
 
         public async Task<IEnumerable<EventDTO>> GetAllAsync()
     {
-        var eventsDb = await _context.Events.ToListAsync();
+        var eventsDb = await _eventRepository.GetAllAsync();
         var eventsDTOs =eventsDb.Select(eventDb => _eventMapper.MapToDTO(eventDb));
 
         return eventsDTOs;
