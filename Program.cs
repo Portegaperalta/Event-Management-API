@@ -1,5 +1,6 @@
 using Event_Management_API.Data;
 using Event_Management_API.Mappers;
+using Event_Management_API.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Services Area 
 
 builder.Services.AddScoped<EventMapper>();
+builder.Services.AddScoped<IEventService,EventService>();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
         options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
