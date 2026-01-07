@@ -34,4 +34,19 @@ public class EventMapper
          EndTime = eventCreationDTO.EndTime
         };
     }
+
+    public Event MapToEntity(EventUpdateDTO eventUpdateDTO)
+    {
+        return new Event
+        {
+         Name = eventUpdateDTO.Name,
+         Description = eventUpdateDTO.Description,
+         Location = eventUpdateDTO.Location,
+         AccessCode = eventUpdateDTO.AccessCode,
+         StartDate = eventUpdateDTO.StartDate,
+         EndDate = eventUpdateDTO.EndDate,
+         StartTime = eventUpdateDTO.StartTime,
+         EndTime = eventUpdateDTO.EndTime
+        };
+    }
 }
