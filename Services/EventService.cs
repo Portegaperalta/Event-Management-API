@@ -35,4 +35,11 @@ public class EventService : IEventService
         var eventDTO = _eventMapper.MapToDTO(eventDb);
         return eventDTO;
     }
+
+    public async Task CreateAsync(EventCreationDTO eventCreationDTO)
+    {
+        var eventData = _eventMapper.MapToEntity(eventCreationDTO);
+
+        await _eventRepository.CreateAsync(eventData);
+    }
 }
