@@ -42,4 +42,11 @@ public class EventService : IEventService
 
         await _eventRepository.CreateAsync(eventData);
     }
+
+    public async Task UpdateAsync(EventUpdateDTO eventUpdateDTO)
+    {
+        var eventUpdateData = _eventMapper.MapToEntity(eventUpdateDTO);
+
+        await _eventRepository.UpdateAsync(eventUpdateData);
+    }
 }
