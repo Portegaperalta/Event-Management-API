@@ -7,9 +7,9 @@ namespace Event_Management_API.Services;
 
 public class EventService : IEventService
 {
-    private readonly EventRepository _eventRepository;
+    private readonly IEventRepository _eventRepository;
     private readonly EventMapper _eventMapper;
-    public EventService(EventRepository eventRepository,EventMapper eventMapper)
+    public EventService(IEventRepository eventRepository,EventMapper eventMapper)
     {
         _eventRepository = eventRepository;
         _eventMapper = eventMapper;
