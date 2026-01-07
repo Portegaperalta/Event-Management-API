@@ -49,4 +49,11 @@ public class EventService : IEventService
 
         await _eventRepository.UpdateAsync(eventUpdateData);
     }
+
+    public async Task<int> DeleteAsync(int eventId)
+    {
+        var deletedRecords = await _eventRepository.DeleteAsync(eventId);
+
+        return deletedRecords;
+    }
 }

@@ -10,5 +10,5 @@ public interface IEventService
     Task<EventDTO?> GetByIdAsync(int eventId);
     Task CreateAsync(EventCreationDTO eventCreationDto);
     Task UpdateAsync(EventUpdateDTO eventUpdateDto);
-    Task DeleteAsync(int eventId);
+    Task<int> DeleteAsync(int eventId);
 }
