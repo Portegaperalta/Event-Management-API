@@ -36,5 +36,12 @@ namespace Event_Management_API.Controllers
 
             return Ok(eventDTO);
         }
+
+        [HttpPost]
+        public async Task<ActionResult> Create(EventCreationDTO eventCreationDTO)
+        {
+            await _eventService.CreateAsync(eventCreationDTO);
+            return Created();
+        }
     }
 }
