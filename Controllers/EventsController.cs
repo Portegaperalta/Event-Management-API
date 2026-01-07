@@ -23,5 +23,18 @@ namespace Event_Management_API.Controllers
 
             return eventsDTO;
         }
+
+        [HttpGet("{id:int}")]
+        public async Task<ActionResult<EventDTO?>> GetById([FromRoute] int eventId)
+        {
+            var eventDTO = await _eventService.GetByIdAsync(eventId);
+
+            if (eventDTO is null)
+            {
+                return NotFound();
+            }
+
+            return Ok(eventDTO);
+        }
     }
 }
