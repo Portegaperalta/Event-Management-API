@@ -1,10 +1,7 @@
 using System;
-using Event_Management_API.Data;
 using Event_Management_API.Data.Repositories;
 using Event_Management_API.DTOS;
 using Event_Management_API.Mappers;
-using Event_Management_API.Models;
-using Microsoft.EntityFrameworkCore;
 
 namespace Event_Management_API.Services;
 
@@ -24,5 +21,18 @@ public class EventService : IEventService
         var eventsDTOs =eventsDb.Select(eventDb => _eventMapper.MapToDTO(eventDb));
 
         return eventsDTOs;
+    }
+
+    public async Task<EventDTO?> GetByIdAsync(int eventId)
+    {
+        var eventDb = await _eventRepository.GetByIdAsync(eventId);
+
+        if (eventDb is null)
+        {
+            return null;
+        }
+
+        var eventDTO = _eventMapper.MapToDTO(eventDb);
+        return eventDTO;
     }
 }
