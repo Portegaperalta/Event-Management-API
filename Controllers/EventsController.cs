@@ -1,3 +1,4 @@
+using Event_Management_API.DTOS;
 using Event_Management_API.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -15,6 +16,12 @@ namespace Event_Management_API.Controllers
             _eventService = eventService;
         }
 
-        
+        [HttpGet]
+        public async Task<IEnumerable<EventDTO>> GetAll()
+        {
+            var eventsDTO = await _eventService.GetAllAsync();
+
+            return eventsDTO;
+        }
     }
 }
