@@ -43,5 +43,12 @@ namespace Event_Management_API.Controllers
             await _eventService.CreateAsync(eventCreationDTO);
             return Created();
         }
+
+        [HttpPut("{id:int}")]
+        public async Task<ActionResult> Update(EventUpdateDTO eventUpdateDTO)
+        {
+            await _eventService.UpdateAsync(eventUpdateDTO);
+            return NoContent();
+        }
     }
 }
