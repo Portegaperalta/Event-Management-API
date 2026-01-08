@@ -5,6 +5,8 @@ namespace Event_Management_API.DTOS;
 
 public class EventUpdateDTO
 {
+    [Required]
+    public required int Id;
     public required string Name {get;set;}
     [Required]
     public required string Description {get;set;}
