@@ -50,5 +50,18 @@ namespace Event_Management_API.Controllers
             await _eventService.UpdateAsync(eventUpdateDTO);
             return NoContent();
         }
+
+        [HttpDelete("{id:int}")]
+        public async Task<ActionResult> Delete([FromRoute] int eventId)
+        {
+            var deletedRecords = await _eventService.DeleteAsync(eventId);
+
+            if (deletedRecords == 0)
+            {
+                return NotFound();
+            }
+
+            return NoContent();
+        }
     }
 }
