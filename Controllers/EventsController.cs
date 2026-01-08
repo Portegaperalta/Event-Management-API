@@ -45,8 +45,13 @@ namespace Event_Management_API.Controllers
         }
 
         [HttpPut("{id:int}")]
-        public async Task<ActionResult> Update(EventUpdateDTO eventUpdateDTO)
+        public async Task<ActionResult> Update(int id,EventUpdateDTO eventUpdateDTO)
         {
+            if(id != eventUpdateDTO.Id)
+            {
+                return BadRequest("Event Ids must match");
+            }
+
             await _eventService.UpdateAsync(eventUpdateDTO);
             return NoContent();
         }
