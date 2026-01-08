@@ -38,14 +38,14 @@ namespace Event_Management_API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Create(EventCreationDTO eventCreationDTO)
+        public async Task<ActionResult> Create([FromBody]EventCreationDTO eventCreationDTO)
         {
             await _eventService.CreateAsync(eventCreationDTO);
             return Created();
         }
 
         [HttpPut("{id:int}")]
-        public async Task<ActionResult> Update(int id,EventUpdateDTO eventUpdateDTO)
+        public async Task<ActionResult> Update([FromRoute]int id,[FromBody]EventUpdateDTO eventUpdateDTO)
         {
             if(id != eventUpdateDTO.Id)
             {
