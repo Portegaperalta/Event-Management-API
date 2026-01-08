@@ -52,9 +52,9 @@ namespace Event_Management_API.Controllers
         }
 
         [HttpDelete("{id:int}")]
-        public async Task<ActionResult> Delete([FromRoute] int eventId)
+        public async Task<ActionResult> Delete([FromRoute] int id)
         {
-            var deletedRecords = await _eventService.DeleteAsync(eventId);
+            var deletedRecords = await _eventService.DeleteAsync(id);
 
             if (deletedRecords == 0)
             {
