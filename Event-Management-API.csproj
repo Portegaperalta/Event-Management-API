@@ -13,6 +13,8 @@
     <Folder Include="Data/" />
     <Folder Include="Data/Repositories/" />
     <Folder Include="DTOS/" />
+    <Folder Include="DTOS/Event/" />
+    <Folder Include="DTOS/Guest/" />
     <Folder Include="Mappers/" />
     <Folder Include="Migrations/" />
     <Folder Include="Models/" />
