@@ -59,11 +59,11 @@ namespace Event_Management_API.Controllers
         [HttpDelete("{id:int}")]
         public async Task<ActionResult> Delete([FromRoute] int id)
         {
-            var deletedRecords = await _eventService.DeleteAsync(id);
+            bool isDeleted = await _eventService.DeleteAsync(id);
 
-            if (deletedRecords == 0)
+            if (isDeleted is false)
             {
-                return NotFound();
+                return NotFound($"The event with id:{id} was not found");
             }
 
             return NoContent();
