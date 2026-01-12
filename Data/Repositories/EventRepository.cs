@@ -1,5 +1,6 @@
 using System;
 using Event_Management_API.Models;
+using Microsoft.AspNetCore.Mvc.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 
 namespace Event_Management_API.Data.Repositories;
@@ -37,11 +38,9 @@ public class EventRepository : IEventRepository
         await _context.SaveChangesAsync();
     }
 
-    public async Task<int> DeleteAsync(int eventId)
+    public async Task DeleteAsync(Event enventData)
     {
-        var deletedRecords = await _context.Events
-                                           .Where(e => e.Id == eventId)
-                                           .ExecuteDeleteAsync();
-        return deletedRecords;
+        _context.Events.Remove(enventData);
+        await _context.SaveChangesAsync();
     }
 }

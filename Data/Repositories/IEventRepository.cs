@@ -9,5 +9,5 @@ public interface IEventRepository
     Task <Event?> GetByIdAsync(int eventId);
     Task CreateAsync(Event eventData);
     Task UpdateAsync(Event eventData);
-    Task<int> DeleteAsync(int eventId);
+    Task DeleteAsync(Event eventData);
 }
