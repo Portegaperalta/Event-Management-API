@@ -50,10 +50,16 @@ public class EventService : IEventService
         await _eventRepository.UpdateAsync(eventUpdateData);
     }
 
-    public async Task<int> DeleteAsync(int eventId)
+    public async Task<bool> DeleteAsync(int eventId)
     {
-        var deletedRecords = await _eventRepository.DeleteAsync(eventId);
+        var eventData = await _eventRepository.GetByIdAsync(eventId);
 
-        return deletedRecords;
+        if (eventData is null)
+        {
+            return false;
+        }
+
+        await _eventRepository.DeleteAsync(eventData);
+        return true;
     }
 }
