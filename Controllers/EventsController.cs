@@ -45,7 +45,7 @@ namespace Event_Management_API.Controllers
         }
 
         [HttpPut("{id:int}")]
-        public async Task<ActionResult> Update([FromRoute]int id,[FromBody]EventUpdateDTO eventUpdateDTO)
+        public async Task<ActionResult> Update([FromRoute]int id,[FromForm]EventUpdateDTO eventUpdateDTO)
         {
             if(id != eventUpdateDTO.Id)
             {
