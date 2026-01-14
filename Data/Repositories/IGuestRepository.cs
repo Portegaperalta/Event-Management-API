@@ -9,5 +9,5 @@ public interface IGuestRepository
     Task<Guest?> GetByIdAsync(int guestId);
     Task CreateAsync(Guest guestData);
     Task UpdateAsync(Guest guestData);
-    Task<int> DeleteAsync(int guestId);
+    Task DeleteAsync(Guest guestData);
 }

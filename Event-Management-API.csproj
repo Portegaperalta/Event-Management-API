@@ -15,6 +15,7 @@
     <Folder Include="DTOS/" />
     <Folder Include="DTOS/Event/" />
     <Folder Include="DTOS/Guest/" />
+    <Folder Include="DTOS/Pagination/" />
     <Folder Include="Mappers/" />
     <Folder Include="Migrations/" />
     <Folder Include="Models/" />

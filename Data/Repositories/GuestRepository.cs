@@ -36,10 +36,9 @@ public class GuestRepository : IGuestRepository
         await _context.SaveChangesAsync();
     }
 
-    public async Task<int> DeleteAsync(int guestId)
+    public async Task DeleteAsync(Guest guestData)
     {
-        var deletedRecords = await _context.Guests.Where(g => g.Id == guestId)
-                                                  .ExecuteDeleteAsync();
-        return deletedRecords;
+        _context.Guests.Remove(guestData);
+        await _context.SaveChangesAsync();
     }
 }
