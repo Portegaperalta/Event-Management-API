@@ -15,4 +15,25 @@ public class GuestMapper
             LastName = guest.LastName
         };
     }
+
+    public Guest MapToEntity(GuestCreationDTO guestCreationDTO)
+    {
+        return new Guest
+        {
+          FirstName = guestCreationDTO.FirstName,
+          LastName = guestCreationDTO.LastName,
+          PhoneNumber = guestCreationDTO.PhoneNumber  
+        };
+    }
+
+    public Guest MapToEntity(GuestUpdateDTO guestUpdateDTO)
+    {
+        return new Guest
+        {
+          Id = guestUpdateDTO.Id,
+          FirstName = guestUpdateDTO.FirstName,
+          LastName = guestUpdateDTO.LastName,
+          PhoneNumber = guestUpdateDTO.PhoneNumber
+        };
+    }
 }
