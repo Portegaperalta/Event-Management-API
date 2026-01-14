@@ -1,5 +1,4 @@
 using System;
-using System.Security.Cryptography.X509Certificates;
 using Event_Management_API.Data.Repositories;
 using Event_Management_API.DTOS;
 using Event_Management_API.Mappers;
@@ -62,8 +61,4 @@ public class GuestService : IGuestService
         await _guestRepository.DeleteAsync(guestDb);
         return true;
     }
-}
-
-public interface IGuestService
-{
 }
