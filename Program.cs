@@ -11,6 +11,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddScoped<EventMapper>();
 builder.Services.AddScoped<IEventService,EventService>();
 builder.Services.AddScoped<IEventRepository,EventRepository>();
+builder.Services.AddScoped<IGuestService,GuestService>();
+builder.Services.AddScoped<IGuestRepository,GuestRepository>();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
         options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
