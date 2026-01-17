@@ -21,5 +21,13 @@ namespace Event_Management_API.Controllers
         {
             return await _guestService.GetAllDTOAsync();
         }
+
+        [HttpGet("{id:int}")]
+        public async Task<ActionResult<GuestDTO>> GetById([FromRoute] int id)
+        {
+            var guestDTO = await _guestService.GetByIdDTOAsync(id);
+
+            return Ok(guestDTO);
+        }
     }
 }
