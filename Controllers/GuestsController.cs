@@ -37,5 +37,26 @@ namespace Event_Management_API.Controllers
             await _guestService.CreateAsync(guestCreationDTO);
             return Created();
         }
+
+        //PUT
+        [HttpPut("{id:int}")]
+        public async Task<ActionResult> Put([FromRoute] int id, GuestUpdateDTO guestUpdateDTO)
+        {
+            if (id != guestUpdateDTO.Id)
+            {
+                return BadRequest("Guest ids must match");
+            }
+
+           var guest =  await _guestService.GetByIdDTOAsync(id); 
+
+            if (guest is null)
+            {
+                return NotFound($"User with id:{id} not found");
+            }
+
+            await _guestService.UpdateAsync(guestUpdateDTO);
+
+            return NoContent();
+        }
     }
 }
