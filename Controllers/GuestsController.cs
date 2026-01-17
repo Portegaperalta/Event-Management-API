@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Event_Management_API.Controllers
 {
-     [Route("api/guests")]
+    [Route("api/guests")]
     [ApiController]
     public class GuestsController : ControllerBase
     {
@@ -55,6 +55,21 @@ namespace Event_Management_API.Controllers
             }
 
             await _guestService.UpdateAsync(guestUpdateDTO);
+
+            return NoContent();
+        }
+
+        //DELETE
+        [HttpDelete("{id:int}")]
+        public async Task<ActionResult> Delete([FromRoute] int id)
+        {
+
+            var isDeleted = await _guestService.DeleteAsync(id);
+
+            if (isDeleted is false)
+            {
+                return NotFound($"User with id:{id} not found");
+            }
 
             return NoContent();
         }
