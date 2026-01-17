@@ -29,5 +29,13 @@ namespace Event_Management_API.Controllers
 
             return Ok(guestDTO);
         }
+
+        //POST
+        [HttpPost]
+        public async Task<ActionResult> Post([FromForm] GuestCreationDTO guestCreationDTO)
+        {
+            await _guestService.CreateAsync(guestCreationDTO);
+            return Created();
+        }
     }
 }
